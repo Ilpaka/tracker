@@ -15,7 +15,7 @@ A super minimalist habit tracker built with Wails (Go + React). Track your daily
 - **Backend**: Go (Golang)
 - **Frontend**: React + Vite
 - **Desktop Framework**: Wails v2
-- **Database**: SQLite with GORM
+- **Database**: SQLite with GORM (using modernc.org/sqlite - pure Go, no CGO required)
 - **Authentication**: bcrypt password hashing
 
 ## Prerequisites
@@ -25,6 +25,8 @@ Before running this application, make sure you have:
 - [Go](https://golang.org/dl/) (1.21 or later)
 - [Node.js](https://nodejs.org/) (18 or later)
 - [Wails CLI](https://wails.io/docs/gettingstarted/installation)
+
+**Note**: This application uses a pure Go SQLite driver (modernc.org/sqlite), so **no CGO or GCC is required**. It works out of the box on Windows, macOS, and Linux without any C compiler.
 
 ### Install Wails CLI
 

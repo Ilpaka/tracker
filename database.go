@@ -5,6 +5,7 @@ import (
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	_ "modernc.org/sqlite" // Pure Go SQLite driver (no CGO required)
 )
 
 // User model
@@ -38,7 +39,8 @@ type Track struct {
 
 // InitDB initializes the database
 func InitDB() (*gorm.DB, error) {
-	db, err := gorm.Open(sqlite.Open("tracker.db"), &gorm.Config{})
+	// Use file: prefix to force modernc.org/sqlite driver (pure Go, no CGO)
+	db, err := gorm.Open(sqlite.Open("file:tracker.db?cache=shared&mode=rwc"), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}
