@@ -1,0 +1,44 @@
+.habit-grid-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 4px;
+}
+
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 3px;
+  grid-auto-flow: column;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.grid-cell {
+  width: 12px;
+  height: 12px;
+  background-color: #e8e8e8;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.grid-cell:hover {
+  transform: scale(1.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grid-cell.completed {
+  background-color: #6b7280;
+}
+
+.grid-cell.completed:hover {
+  background-color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .grid-cell {
+    width: 10px;
+    height: 10px;
+  }
+}
